@@ -1,7 +1,6 @@
 package com.windanesz.morphspellpack.registry;
 
 import com.windanesz.morphspellpack.MorphSpellPack;
-import com.windanesz.morphspellpack.items.ItemClayOfCreation;
 import com.windanesz.morphspellpack.items.ItemDruidStone;
 import com.windanesz.morphspellpack.items.ItemLichTome;
 import com.windanesz.morphspellpack.items.ItemShadowBottle;
@@ -45,7 +44,7 @@ public final class MSItems {
 
 		IForgeRegistry<Item> registry = event.getRegistry();
 		ItemRegistry.registerItemArtefact(registry, "ring_web", MorphSpellPack.MODID, new ItemArtefact(EnumRarity.UNCOMMON, ItemArtefact.Type.RING));
-		ItemRegistry.registerItemArtefact(registry, "ring_bat", MorphSpellPack.MODID, new ItemArtefact(EnumRarity.RARE, ItemArtefact.Type.RING));
+		ItemRegistry.registerItemArtefact(registry, "ring_bat", MorphSpellPack.MODID, new ItemArtefact(EnumRarity.UNCOMMON, ItemArtefact.Type.RING));
 		ItemRegistry.registerItemArtefact(registry, "ring_transformation", MorphSpellPack.MODID, new ItemArtefact(EnumRarity.RARE, ItemArtefact.Type.RING));
 		ItemRegistry.registerItemArtefact(registry, "ring_starfall", MorphSpellPack.MODID, new ItemArtefact(EnumRarity.EPIC, ItemArtefact.Type.RING));
 	//	ItemRegistry.registerItemArtefact(registry, "ring_phoenix", MorphSpellPack.MODID, new ItemArtefact(EnumRarity.EPIC, ItemArtefact.Type.RING));
