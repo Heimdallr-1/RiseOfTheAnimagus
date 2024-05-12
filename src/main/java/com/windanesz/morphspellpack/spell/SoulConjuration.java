@@ -32,9 +32,9 @@ import net.minecraft.world.World;
 public class SoulConjuration extends Spell {
 
 	public static final String SOUL_COST = "soul_cost";
+	public static final String PERCENT_COST_PER_HP = "percent_cost_per_hp";
 	private static final String SUMMON_RADIUS = "summon_radius";
 	private static final String MINION_COUNT = "minion_count";
-	private static final String PERCENT_COST_PER_HP = "percent_cost_per_hp";
 
 	public SoulConjuration() {
 
