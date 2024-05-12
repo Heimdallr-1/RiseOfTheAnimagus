@@ -9,6 +9,7 @@ import electroblob.wizardry.data.IStoredVariable;
 import electroblob.wizardry.data.Persistence;
 import electroblob.wizardry.data.WizardData;
 import electroblob.wizardry.item.ItemArtefact;
+import electroblob.wizardry.registry.WizardryItems;
 import electroblob.wizardry.spell.Spell;
 import electroblob.wizardry.util.SpellModifiers;
 import me.ichun.mods.morph.common.Morph;
@@ -129,7 +130,7 @@ public class SpellTransformation extends Spell {
 				demorphPlayer(caster);
 				return false;
 			}
-			int duration = getProperty(DURATION).intValue();
+			int duration = (int) (getProperty(DURATION).intValue() * modifiers.get(WizardryItems.duration_upgrade));
 
 			WizardData.get((EntityPlayer) caster).stopCastingContinuousSpell();;
 			boolean flag = morphPlayer(caster, morph, duration);
