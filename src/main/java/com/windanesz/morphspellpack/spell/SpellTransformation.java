@@ -104,6 +104,7 @@ public class SpellTransformation extends Spell {
 			}
 
 			if (PlayerMorphHandler.getInstance().forceDemorph((EntityPlayerMP) player)) {
+				PlayerMorphHandler.getInstance().savePlayerData((EntityPlayer) player);
 				WizardData data = WizardData.get((EntityPlayer) player);
 				if (data != null) {
 					data.setVariable(MORPH_DURATION, 0);
