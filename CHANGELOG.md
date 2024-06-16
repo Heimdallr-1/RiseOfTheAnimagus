@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.2.0] - 2024-06-16
+### :sparkles: New Features
+- [`71f250f`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/71f250f820900ab128f6a306c3c349afb66eb30c) - Zombie morph has the ability to locate nearby players *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`1ae2bf2`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/1ae2bf2132740f2a5f91b0534b8410ef4d0704e3) - Lowered Bat Ring tier to Uncommon *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`b47fb22`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/b47fb225374912739c3c669574fdc7d8f0c25c01) - The Soul Phylactery now refills itself when a minion dies which was summoned using Soul Conjuration *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`27bf916`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/27bf916710c44922a941973e75a2fbc02da4c770) - Implemented the multiblock Soul Receptacle structure for liches. A 5-layer pyramid, made out of elemental crystal blocks, with the Soul Receptacle block in the middle (similar to vanilla beacons) for liches. Each layer has unique effects, based on the crystals. See *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`711a876`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/711a876eaa7c696380c7d406c99867cd72a648c5) - Added 7 new lich-only spells *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`450417b`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/450417bf3bdf33ab8985e2e5a677efc247600e9e) - Added a new curse (earth element) - Curse of Lycanthropy *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`c2bc84a`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/c2bc84aa57f9dc95b0a905daf46a0c8a591e1488) - Added 10 new artefacts *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+### :bug: Bug Fixes
+- [`6bb75dc`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/6bb75dc71e0c4ff3bc71644b7dae8ba2b62ce227) - Wand Duration Modifier now affect self morph spells *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+- [`05ed902`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/05ed9028b6ebbfbac51ee16a0fae35f23aca2d70) - Fixed issue with /setlich that causes players that were set to be human again still reverted to lich morp form on relogging *(commit by [@WinDanesz](https://github.com/WinDanesz))*
+
+
 ## [v1.0.2] - 2023-02-03
 ### :sparkles: New Features
 - [`1f3fa6a`](https://github.com/WinDanesz/RiseOfTheAnimagus/commit/1f3fa6a3979430e539219533755b8a66a637cb6c) - Added Chinese translation (by LILPR1NC3) *(commit by [@WinDanesz](https://github.com/WinDanesz))*
@@ -28,3 +43,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [v1.0.1]: https://github.com/WinDanesz/BackportedStuff/compare/v1.0.0...v1.0.1
 [v1.0.2]: https://github.com/WinDanesz/RiseOfTheAnimagus/compare/v1.0.1...v1.0.2
+[v1.2.0]: https://github.com/WinDanesz/RiseOfTheAnimagus/compare/v1.1.0...v1.2.0
