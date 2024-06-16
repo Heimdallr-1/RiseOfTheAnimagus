@@ -3,6 +3,7 @@ package com.windanesz.morphspellpack;
 import com.windanesz.morphspellpack.handler.MSAbilityHandler;
 import com.windanesz.morphspellpack.handler.ThreadGetResourcesImpl;
 import me.ichun.mods.morph.common.Morph;
+import net.minecraft.world.World;
 
 public class CommonProxy {
 
@@ -19,6 +20,11 @@ public class CommonProxy {
 	public void init() {
 
 	}
+
+	public void renderUmbralVeil(World world, double x, double y, double z) {
+		// NO-OP
+	}
+
 
 	public void preInit() {
 		MSAbilityHandler.preInit();

@@ -2,8 +2,11 @@ package com.windanesz.morphspellpack.registry;
 
 import com.windanesz.morphspellpack.MorphSpellPack;
 import com.windanesz.morphspellpack.potion.PotionConjuredSoul;
+import com.windanesz.morphspellpack.potion.PotionLycanthropy;
+import com.windanesz.morphspellpack.potion.PotionUmbralVeil;
 import electroblob.wizardry.potion.Curse;
 import electroblob.wizardry.potion.PotionMagicEffect;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -13,6 +16,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.Nonnull;
+import java.util.Collections;
+import java.util.List;
 
 @GameRegistry.ObjectHolder(MorphSpellPack.MODID)
 @Mod.EventBusSubscriber
@@ -20,13 +25,17 @@ public class MSPotions {
 
 	public static final Potion shape_lock = placeholder();
 	public static final Potion curse_of_transformation = placeholder();
+	public static final Potion curse_of_lycanthropy = placeholder();
 	public static final Potion conjured_soul = placeholder();
+	public static final Potion fleshcloak = placeholder();
+	public static final Potion phylacterys_grasp = placeholder();
+	public static final Potion umbral_veil = placeholder();
 
 	private MSPotions() {}
 
 	@Nonnull
 	@SuppressWarnings("ConstantConditions")
-	private static <T> T placeholder() { return null; }
+	private static <T> T placeholder() {return null;}
 
 	/**
 	 * Sets both the registry and unlocalised names of the given potion, then registers it with the given registry. Use
@@ -56,9 +65,24 @@ public class MSPotions {
 		registerPotion(registry, "curse_of_transformation", new Curse(true, 0xc71447,
 				new ResourceLocation(MorphSpellPack.MODID, "textures/gui/potion_icons/curse_of_transformation.png")));
 
+		registerPotion(registry, "curse_of_lycanthropy", new PotionLycanthropy());
+
 		registerPotion(registry, "conjured_soul", new PotionConjuredSoul(false, 0x000000,
 				new ResourceLocation(MorphSpellPack.MODID, "textures/gui/potion_icons/conjured_soul.png")));
 
+		registerPotion(registry, "fleshcloak", new PotionMagicEffect(false, 0x000000,
+				new ResourceLocation(MorphSpellPack.MODID, "textures/gui/potion_icons/fleshcloak.png")));
+
+		registerPotion(registry, "phylacterys_grasp", new PotionMagicEffect(false, 0x000000,
+				new ResourceLocation(MorphSpellPack.MODID, "textures/gui/potion_icons/phylacterys_grasp.png")) {
+			@Override
+			public List<ItemStack> getCurativeItems() {
+				// empty list to prevent phylactery's grasp from being curable
+				return Collections.emptyList();
+			}
+		});
+
+		registerPotion(registry, "umbral_veil", new PotionUmbralVeil());
 	}
 
 }

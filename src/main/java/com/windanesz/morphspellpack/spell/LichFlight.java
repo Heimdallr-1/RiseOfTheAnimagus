@@ -7,8 +7,8 @@ import electroblob.wizardry.spell.Spell;
 import electroblob.wizardry.util.ParticleBuilder;
 import electroblob.wizardry.util.ParticleBuilder.Type;
 import electroblob.wizardry.util.SpellModifiers;
-import me.ichun.mods.morph.common.Morph;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
@@ -64,4 +64,8 @@ public class LichFlight extends Spell {
 		return true;
 	}
 
+	@Override
+	public boolean applicableForItem(Item item) {
+		return false;
+	}
 }

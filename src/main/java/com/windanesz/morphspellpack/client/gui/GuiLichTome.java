@@ -1,6 +1,7 @@
 package com.windanesz.morphspellpack.client.gui;
 
 import com.windanesz.morphspellpack.MorphSpellPack;
+import com.windanesz.morphspellpack.registry.MSItems;
 import electroblob.wizardry.Wizardry;
 import electroblob.wizardry.client.DrawingUtils;
 import electroblob.wizardry.client.gui.GuiButtonTurnPage;
@@ -79,11 +80,12 @@ public class GuiLichTome extends GuiScreen {
 	 * @param mouseY The current y position of the mouse pointer
 	 */
 	protected void drawForegroundLayer(int left, int top, int mouseX, int mouseY) {
-		String fullDesc = Wizardry.proxy.translate("gui.morphspellpack:lich_tome.desc");
+		String descString = "gui." + ritualBook.getItem().getRegistryName().toString() + ".desc";
+		String fullDesc = Wizardry.proxy.translate(descString);
 		boolean discovered = true;
-		int splitIndex = discovered ? 320 : 200;
+		int splitIndex = discovered ? 380 : 200;
 		if (doublePage) {
-			int i = 320;
+			int i = 380;
 
 			for (int j = 0; j < 30; j++) {
 				if (fullDesc.length() > i && Character.isWhitespace(fullDesc.charAt(i))) {
@@ -102,7 +104,8 @@ public class GuiLichTome extends GuiScreen {
 		String rightSideDesc = "";
 
 		if (discovered) {
-			name = Wizardry.proxy.translate("gui.morphspellpack:lich_tome.title");
+			String nameString = "gui." + (ritualBook.getItem().getRegistryName() + ".title");
+			name = Wizardry.proxy.translate(nameString);
 		}
 
 		String desc = fullDesc;

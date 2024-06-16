@@ -80,7 +80,7 @@ public class ItemSoulPhylactery extends ItemArtefact implements IWorkbenchItem, 
 	}
 
 	public static String getEntity(ItemStack stack) {
-		return stack.hasTagCompound() && stack.getTagCompound().hasKey(ENTITY_TAG) ? stack.getTagCompound().getString(ENTITY_TAG) : "";
+		return hasEntity(stack) ? stack.getTagCompound().getString(ENTITY_TAG) : "";
 	}
 
 	public static ItemStack addPercent(ItemStack stack, float percentToAdd) {
@@ -239,7 +239,8 @@ public class ItemSoulPhylactery extends ItemArtefact implements IWorkbenchItem, 
 				}
 
 				if (getPercentFilled(itemStack) >= 1f) {
-					SpellTransformation.morphPlayer(entityLivingBase, LichHandler.LICH, -1);
+					SpellTransformation.morphPlayer(entityLivingBase, LichHandler.getLichString(), -1);
+
 					LichHandler.setLich(entityLivingBase, true);
 				}
 			}

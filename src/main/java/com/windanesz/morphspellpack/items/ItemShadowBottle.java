@@ -1,5 +1,6 @@
 package com.windanesz.morphspellpack.items;
 
+import com.windanesz.morphspellpack.handler.LichHandler;
 import com.windanesz.morphspellpack.spell.SpellTransformation;
 import com.windanesz.wizardryutils.item.ITickableArtefact;
 import electroblob.wizardry.item.ItemArtefact;
@@ -17,7 +18,7 @@ public class ItemShadowBottle extends ItemArtefact implements ITickableArtefact 
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		if (player.isSprinting() && !((EntityPlayer) player).getCooldownTracker().hasCooldown(itemstack.getItem())) {
-			SpellTransformation.morphPlayer(player, "ebwizardry:shadow_wraith", 20);
+			SpellTransformation.morphPlayer(player, "ebwizardry:shadow_wraith", LichHandler.isLich(player) ? 40 : 20);
 			((EntityPlayer) player).getCooldownTracker().setCooldown(itemstack.getItem(),60);
 		}
 	}

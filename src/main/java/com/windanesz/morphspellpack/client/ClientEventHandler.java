@@ -3,6 +3,7 @@ package com.windanesz.morphspellpack.client;
 import com.windanesz.morphspellpack.MorphSpellPack;
 import com.windanesz.morphspellpack.handler.LichHandler;
 import com.windanesz.morphspellpack.registry.MSPotions;
+import electroblob.wizardry.registry.WizardryItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -15,6 +16,7 @@ import net.minecraft.util.FoodStats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -103,9 +105,9 @@ public class ClientEventHandler {
 		if (event.getEntity().isPotionActive(MSPotions.conjured_soul)) {
 			GlStateManager.pushMatrix();
 			GlStateManager.enableBlend();
-
+			int amplifier = event.getEntity().getActivePotionEffect(MSPotions.conjured_soul).getAmplifier();
 			GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE); // GhoOOoOostly OooOOOo00oOOo
-			GlStateManager.color(0.7f, 1, 1, 0.5f);
+			GlStateManager.color(0.7f, 1, 1, amplifier == 0 ? 0.5f : amplifier == 1 ? 0.6f : 0.7f);
 		}
 	}
 
@@ -115,5 +117,4 @@ public class ClientEventHandler {
 			GlStateManager.popMatrix();
 		}
 	}
-
 }

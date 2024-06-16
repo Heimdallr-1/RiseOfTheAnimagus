@@ -3,6 +3,7 @@ package com.windanesz.morphspellpack.handler;
 import com.windanesz.morphspellpack.ability.AbilityDisguise;
 import com.windanesz.morphspellpack.ability.AbilityItemSpawn;
 import com.windanesz.morphspellpack.ability.AbilityLichPhylactery;
+import com.windanesz.morphspellpack.ability.AbilityLichSunburn;
 import com.windanesz.morphspellpack.ability.AbilityPassivePotion;
 import com.windanesz.morphspellpack.ability.AbilityPigMushroomSpawn;
 import com.windanesz.morphspellpack.ability.AbilityPotionResistance;
@@ -34,5 +35,6 @@ public class MSAbilityHandler {
 		AbilityHandler.getInstance().registerAbility(AbilityPigMushroomSpawn.name, AbilityPigMushroomSpawn.class);
 		AbilityHandler.getInstance().registerAbility(AbilityPassivePotion.name, AbilityPassivePotion.class);
 		AbilityHandler.getInstance().registerAbility(AbilitySniffPlayer.name, AbilitySniffPlayer.class);
+		AbilityHandler.getInstance().registerAbility(AbilityLichSunburn.name, AbilityLichSunburn.class);
 	}
 }

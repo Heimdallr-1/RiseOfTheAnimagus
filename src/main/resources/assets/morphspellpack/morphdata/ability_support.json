@@ -79,8 +79,9 @@
     "com.windanesz.morphspellpack.entity.living.EntityLich": [
         "lichNeedsPhylactery",
         "potionResistance|minecraft:regeneration,minecraft:saturation,minecraft:instant_health,minecraft:hunger,minecraft:nausea",
-        "sunburn",
+        "lichSunburn",
         "spellCast|morphspellpack:lich_flight,5,60000",
+        "passivePotion|minecraft:night_vision,0,600",
         "waterBreath"
     ],
     "electroblob.wizardry.entity.living.EntityIceWraith": [

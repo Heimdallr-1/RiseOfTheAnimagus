@@ -9,8 +9,8 @@ param (
 
 ###############################################
 # Static
-$script:srcPath = "C:\git\WizardryUtils\src"
-$script:modid = "wizardryutils"
+$script:srcPath = "C:\git\MorphSpellPack\src"
+$script:modid = "morphspellpack"
 ###############################################
 
 ################ Item Specific ################ 
@@ -66,6 +66,6 @@ function Create-Texture {
 #endregion Functions
 
 New-SimpleModelFile
-Add-LangFileEntry -Entry "item.$($script:modid)\:$($script:itemName).name=TODO"
-Add-LangFileEntry -Entry "item.$($script:modid)\:$($script:itemName).desc=TODO"
+Add-LangFileEntry -Entry "item.$($script:modid):$($script:itemName).name=TODO"
+Add-LangFileEntry -Entry "item.$($script:modid):$($script:itemName).desc=TODO"
 Create-Texture

@@ -4,17 +4,25 @@ import com.windanesz.morphspellpack.MorphSpellPack;
 import com.windanesz.morphspellpack.entity.living.EntityBatMinion;
 import com.windanesz.morphspellpack.entity.living.EntityLightWisp;
 import com.windanesz.morphspellpack.entity.projectile.EntityRadiantSpark;
+import com.windanesz.morphspellpack.spell.CurseOfLycantropy;
 import com.windanesz.morphspellpack.spell.CurseOfTransformation;
 import com.windanesz.morphspellpack.spell.Demorph;
+import com.windanesz.morphspellpack.spell.Fleshcloak;
+import com.windanesz.morphspellpack.spell.LichDrain;
 import com.windanesz.morphspellpack.spell.LichFlight;
+import com.windanesz.morphspellpack.spell.NecroticHand;
+import com.windanesz.morphspellpack.spell.PhylacterysGrasp;
 import com.windanesz.morphspellpack.spell.Rabbitify;
 import com.windanesz.morphspellpack.spell.ShapeBinding;
 import com.windanesz.morphspellpack.spell.ShapeLock;
 import com.windanesz.morphspellpack.spell.Skinchanger;
+import com.windanesz.morphspellpack.spell.SoulCompass;
 import com.windanesz.morphspellpack.spell.SoulConjuration;
+import com.windanesz.morphspellpack.spell.Soultrap;
 import com.windanesz.morphspellpack.spell.SpellTransformation;
 import com.windanesz.morphspellpack.spell.Starfall;
 import com.windanesz.morphspellpack.spell.TrueResurrection;
+import com.windanesz.morphspellpack.spell.UmbralVeil;
 import electroblob.wizardry.item.ItemArtefact;
 import electroblob.wizardry.item.SpellActions;
 import electroblob.wizardry.spell.Spell;
@@ -56,6 +64,13 @@ public final class MSSpells {
 	public static final Spell soul_conjuration = placeholder();
 	public static final Spell true_resurrection = placeholder();
 	public static final Spell lich_flight = placeholder();
+	public static final Spell fleshcloak = placeholder();
+	public static final Spell soul_compass = placeholder();
+	public static final Spell lichdrain = placeholder();
+	public static final Spell phylacterys_grasp = placeholder();
+	public static final Spell umbral_veil = placeholder();
+	public static final Spell necrotic_hand = placeholder();
+	public static final Spell soultrap = placeholder();
 
 	private MSSpells() {} // no instances
 
@@ -106,6 +121,13 @@ public final class MSSpells {
 		registry.register(new SoulConjuration());
 		registry.register(new TrueResurrection());
 		registry.register(new LichFlight());
-
+		registry.register(new Fleshcloak());
+		registry.register(new CurseOfLycantropy());
+		registry.register(new SoulCompass());
+		registry.register(new LichDrain());
+		registry.register(new PhylacterysGrasp());
+		registry.register(new UmbralVeil());
+		registry.register(new NecroticHand());
+		registry.register(new Soultrap());
 	}
 }

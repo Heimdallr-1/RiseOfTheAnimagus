@@ -43,11 +43,11 @@ public class SpellTransformation extends Spell {
 	}
 
 	private static Integer update(EntityPlayer player, Integer countdown) {
-		 if (LichHandler.isLich(player) && player.ticksExisted == 20) {
-			morphPlayer((EntityLivingBase) player, LichHandler.LICH, 5);
+		if (LichHandler.isLich(player) && player.ticksExisted == 20 && !player.isPotionActive(MSPotions.fleshcloak)) {
+			morphPlayer((EntityLivingBase) player, LichHandler.getLichString(), 5);
 		}
 
-		if (countdown == null) { return 0; }
+		if (countdown == null) {return 0;}
 		if (!player.world.isRemote && !isShapeLocked(player)) {
 			if (countdown > 0) {
 				countdown--;
@@ -57,7 +57,7 @@ public class SpellTransformation extends Spell {
 				if (Morph.eventHandlerServer.morphsActive.containsKey(player.getName())) {
 					// demorph
 					demorphPlayer(player);
-//					PlayerMorphHandler.getInstance().forceDemorph((EntityPlayerMP) player);
+					//					PlayerMorphHandler.getInstance().forceDemorph((EntityPlayerMP) player);
 				}
 			}
 		}
@@ -80,8 +80,10 @@ public class SpellTransformation extends Spell {
 			if (data != null) {
 
 				// this ring doubles the duration
-				if (ItemArtefact.isArtefactActive((EntityPlayer) player, MSItems.ring_transformation)) {
-					duration = duration * 2;
+				for (ItemArtefact artefact : ItemArtefact.getActiveArtefacts((EntityPlayer) player)) {
+					if (artefact == MSItems.ring_transformation) {
+						duration *= 2;
+					}
 				}
 				data.setVariable(LAST_MORPH, ent);
 				data.setVariable(MORPH_DURATION, duration);
@@ -99,7 +101,7 @@ public class SpellTransformation extends Spell {
 
 		if (player instanceof EntityPlayerMP) {
 			if (LichHandler.isLich(player)) {
-				morphPlayer(player, LichHandler.LICH, -1);
+				morphPlayer(player, LichHandler.getLichString(), -1);
 				return true;
 			}
 
@@ -121,7 +123,7 @@ public class SpellTransformation extends Spell {
 	}
 
 	public boolean morph(World world, EntityLivingBase caster, EnumHand hand, int ticksInUse, SpellModifiers modifiers) {
-		if (world.isRemote) { this.playSound(world, caster, ticksInUse, -1, modifiers); }
+		if (world.isRemote) {this.playSound(world, caster, ticksInUse, -1, modifiers);}
 
 		if (!world.isRemote && caster instanceof EntityPlayer) {
 			// check if the player is morphing or morphed already. Revert to human if already morphed
@@ -133,7 +135,8 @@ public class SpellTransformation extends Spell {
 			}
 			int duration = (int) (getProperty(DURATION).intValue() * modifiers.get(WizardryItems.duration_upgrade));
 
-			WizardData.get((EntityPlayer) caster).stopCastingContinuousSpell();;
+			WizardData.get((EntityPlayer) caster).stopCastingContinuousSpell();
+			;
 			boolean flag = morphPlayer(caster, morph, duration);
 			if (flag) {
 				morphExtra(world, caster, morph, duration);

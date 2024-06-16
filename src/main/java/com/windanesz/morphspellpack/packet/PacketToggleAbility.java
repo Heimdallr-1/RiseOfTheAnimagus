@@ -23,12 +23,12 @@ public class PacketToggleAbility implements IMessageHandler<PacketToggleAbility.
 		// Just to make sure that the side is correct
 		if (ctx.side.isServer()) {
 			final EntityPlayerMP player = ctx.getServerHandler().player;
-			player.getServerWorld().addScheduledTask(() -> toggleAbility(player));
+			player.getServerWorld().addScheduledTask(() -> toggleAbility(player, message.secondary));
 		}
 		return null;
 	}
 
-	private void toggleAbility(EntityPlayerMP player) {
+	private void toggleAbility(EntityPlayerMP player, boolean secondary) {
 		MorphInfo info = Morph.eventHandlerServer.morphsActive.get(player.getName());
 
 		if (info != null) {
@@ -43,17 +43,19 @@ public class PacketToggleAbility implements IMessageHandler<PacketToggleAbility.
 
 	public static class Message implements IMessage {
 
+		boolean secondary = false;
 		// This constructor is required otherwise you'll get errors (used somewhere in fml through reflection)
 		public Message() {
 		}
 
 		@Override
 		public void fromBytes(ByteBuf buf) {
-			// The order is important
+			secondary = buf.readBoolean();
 		}
 
 		@Override
 		public void toBytes(ByteBuf buf) {
+			buf.writeBoolean(secondary);
 		}
 	}
 }
