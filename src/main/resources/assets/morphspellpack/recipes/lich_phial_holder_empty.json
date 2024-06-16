@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"S S",
+		"EAE",
+		"SSS"
+	],
+	"key": {
+		"S": {
+			"item": "minecraft:stone",
+			"data": 0
+		},
+		"A": {
+			"item": "ebwizardry:astral_diamond"
+		},
+		"E": {
+			"item": "minecraft:emerald"
+		}
+	},
+	"result": {
+		"item": "morphspellpack:lich_phial_holder_empty"
+	}
+}
