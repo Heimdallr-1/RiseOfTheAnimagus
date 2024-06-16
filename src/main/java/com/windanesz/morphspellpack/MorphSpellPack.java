@@ -5,9 +5,11 @@ import com.windanesz.morphspellpack.command.CommandSetLich;
 import com.windanesz.morphspellpack.handler.LichHandler;
 import com.windanesz.morphspellpack.handler.MSAbilityHandler;
 import com.windanesz.morphspellpack.packet.MSPacketHandler;
-import com.windanesz.morphspellpack.registry.BlockRegistry;
+import com.windanesz.morphspellpack.registry.BookshelfItems;
+import com.windanesz.morphspellpack.registry.MSBlocks;
 import electroblob.wizardry.api.WizardryEnumHelper;
 import me.ichun.mods.morph.common.Morph;
+import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -39,9 +41,14 @@ public class MorphSpellPack {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		WizardryEnumHelper.addSpellType("TRANSFORMATION", "transformation");
+		WizardryEnumHelper.addSpellType("LICH", "lich");
 		logger = event.getModLog();
 		proxy.registerRenderers();
 		MSAbilityHandler.preInit();
+		MSBlocks.registerTileEntities();
+		BookshelfItems.preInitBookShelfModelTextures();
+
+		ForgeChunkManager.setForcedChunkLoadingCallback(this, MSChunkLoader.INSTANCE);
 	}
 
 	@EventHandler
@@ -54,12 +61,11 @@ public class MorphSpellPack {
 		LichHandler.init();
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new MSGuiHandler());
-
+		BookshelfItems.InitBookshelfItems();
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		BlockRegistry.registerOreDictionaryEntries();
 		Morph.config.morphTime = 30;
 		Morph.config.maxMorphHealth = 1000;
 		proxy.postInit();
