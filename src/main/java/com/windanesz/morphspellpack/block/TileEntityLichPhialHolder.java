@@ -70,8 +70,7 @@ public class TileEntityLichPhialHolder extends TileEntity implements IInventory,
 	private UUID ownerUUID;
 	private NonNullList<ItemStack> inventory;
 	private int levels = -1;
-	private final int lunarCycle = 40;
-	//	private final int lunarCycle = 192000;
+	private final int lunarCycle = 192000;
 	int countdownTillNextSpellBook = 40;
 
 	List<Optional<Element>> pyramid = new ArrayList<>(Collections.nCopies(5, Optional.empty()));
